@@ -1,0 +1,22 @@
+<h2>Lista de productos</h2>
+
+{{#if productos.length}}
+  <ul class="product-list">
+    {{#each productos}}
+      <li class="product-card">
+        <h3>{{nombre}}</h3>
+        <img src="/images/{{imagen}}" alt="{{nombre}}" style="width: 200px; border-radius: 8px; margin-bottom: 10px;">
+        <p><strong>Precio:</strong> ${{precio}}</p>
+        <div>
+          <a href="/productos/{{id}}" class="boton">Ver</a>
+          <a href="/productos/{{id}}/editar" class="boton">Editar</a>
+          <form action="/productos/{{id}}/eliminar" method="POST" style="display:inline;">
+            <button type="submit" class="eliminar">Eliminar</button>
+          </form>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No hay productos aún.</p>
+{{/if}}
